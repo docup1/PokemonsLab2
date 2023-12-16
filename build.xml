@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<project name="Pokemons" default="run">
+         
+    
+   <target name = "run">
+        <delete dir="build"/>
+        <mkdir dir="build/classes"/>
+        <javac destdir="build/classes" includeantruntime="false">
+            <src path="src/moves"/>
+            <classpath>
+                <pathelement path="lib/Pokemon.jar"/>
+            </classpath>
+        </javac>
+        <javac destdir="build/classes" includeantruntime="false">
+            <src path="src/pokemons"/>
+            <classpath>
+                <pathelement path="lib/Pokemon.jar"/>
+            </classpath>
+        </javac>
+        <javac destdir="build/classes" includeantruntime="false">
+            <src path="src"/>
+            <classpath>
+                <pathelement path="lib/Pokemon.jar"/>
+            </classpath>
+        </javac>
+        <mkdir dir="build/jar"/>
+	<jar destfile="build/jar/lab2.jar" basedir="build/classes">
+            <zipgroupfileset dir="lib" includes="Pokemon.jar" />
+                <manifest>
+                        <attribute name="Main-Class" value="Main"/>
+                </manifest>
+        </jar>
+        
+    </target>
+   
+    
+</project>
